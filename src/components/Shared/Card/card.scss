@@ -1,0 +1,93 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 272px;
+  padding: 32px;
+  border: 1px #E2E6E9 solid;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__separator {
+    height: 1px;
+    background-color: #E2E6E9;
+  }
+
+  &__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    &-pick {
+      height: 196px;
+      margin-bottom: auto;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &-title {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 21px;
+    }
+
+    &-price {
+      display: flex;
+      gap: 8px;
+
+      &-discount {
+        font-size: 22px;
+        font-weight: 800;
+        line-height: 30.8px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+      }
+
+      &-fullprice {
+        color: #E2E6E9;
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 28.12px;
+        text-align: left;
+        text-decoration-line: line-through;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+      }
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding:8px 0;
+  }
+
+  &__detail {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__favorite {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    border: 1px black solid;
+  }
+}

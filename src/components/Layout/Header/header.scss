@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+
+  justify-content: space-between;
+  width: 100%;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    &-icon {
+      padding: 0 24px;
+    }
+  }
+
+  &__product {
+    display: flex;
+
+    &-icon {
+      padding: 24px;
+    }
+  }
+}
+
