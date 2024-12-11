@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './pagination.scss';
 
 interface PaginationProps {
   total: number;
@@ -23,27 +24,15 @@ export const Pagination: React.FC<PaginationProps> = ({
   }
 
   return (
-    <nav>
-      <ul className="pagination">
-        <select
-          className="form-control"
-          data-cy="perPageSelector"
-          id="perPageSelector"
-          onChange={e => setPageSize(Number(e.target.value))}
-          value={perPage}
-        >
-          {[3, 5, 10, 20].map(size => (
-            <option key={size} value={size}>
-              {size}
-            </option>
-          ))}
-        </select>
+    <div className="pagination">
+      <ul className="pagination__list">
         {pageNumbers.map(number => (
           <li
             className={`page-item ${currentPage === number ? 'active' : ''}`}
             key={number}
           >
             <Link
+              data-cy="pageLink"
               to={`?page=${number}&perPage=${perPage}`}
               className="page-link"
               onClick={() => onPageChange(number)}
@@ -53,6 +42,19 @@ export const Pagination: React.FC<PaginationProps> = ({
           </li>
         ))}
       </ul>
-    </nav>
+      <select
+        className="form-control"
+        data-cy="perPageSelector"
+        id="perPageSelector"
+        onChange={e => setPageSize(Number(e.target.value))}
+        value={perPage}
+      >
+        {[3, 5, 10, 20].map(size => (
+          <option key={size} value={size}>
+            {size}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 };

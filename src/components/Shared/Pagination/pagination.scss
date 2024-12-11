@@ -1,0 +1,27 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+
+  &__list {
+    display: flex;
+
+  }
+}
+
+.active {
+  color: white;
+  background-color: black;
+}
+
+.page {
+  &-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border:1px #E2E6E9 solid;
+  }
+}

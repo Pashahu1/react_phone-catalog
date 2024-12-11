@@ -37,10 +37,12 @@ export const Phone: React.FC = () => {
       {!loading && (
         <section className="phone">
           <h1 className="phone__title">Mobile phones</h1>
+          <p>{phoneProducts.length} models</p>
           <div className="category">
             {currentPages.map(product => (
               <Card key={product.id} product={product} />
             ))}
+
             <Pagination
               total={phoneProducts.length}
               perPage={pageSize}
@@ -50,7 +52,7 @@ export const Phone: React.FC = () => {
             />
           </div>
           <p>flow</p>
-          <p>count phone</p>
+
           <span>sort item on a display</span>
           <p>product slider</p>
         </section>
