@@ -8,7 +8,7 @@ type Props = {
   product: Product;
 };
 
-export const Cart: React.FC<Props> = ({ product }) => {
+export const Card: React.FC<Props> = ({ product }) => {
   return (
     <article className="card">
       <div className="card__content">
@@ -41,7 +41,7 @@ export const Cart: React.FC<Props> = ({ product }) => {
         </div>
 
         <div className="card__actions">
-          <Button>Add to cart</Button>
+          <Button className="button card__button">Add to cart</Button>
           <div className="card__favorite">
             <img className="card__favorite-icon" src={favorite} alt="like" />
           </div>

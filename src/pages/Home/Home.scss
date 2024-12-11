@@ -1,0 +1,12 @@
+.home {
+  &__shop-category {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    &-page {
+      display: flex;
+      gap: 16px;
+    }
+  }
+}

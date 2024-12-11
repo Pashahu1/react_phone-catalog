@@ -1,6 +1,19 @@
 @import 'mixins';
 
+@font-face {
+  font-family: Mont-Bold;
+  src: url('../../../public/fonts/Mont-Bold.otf') format('opentype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Mont-SemiBold;
+  src: url('../../../public/fonts/Mont-SemiBold.otf') format('opentype');
+  font-weight: 600;
+}
+
 h1 {
+  font-family: Mont-Bold, sans-serif;
   font-size: 48px;
   line-height: 56px;
   letter-spacing: -0.01em;
@@ -19,12 +32,14 @@ h3 {
 }
 
 h4 {
+  font-family: Mont-SemiBold, sans-serif;
   font-size: 20px;
   line-height: 26px;
   letter-spacing: 0;
 }
 
 button {
+  font-family: Mont-SemiBold, sans-serif;
   font-size: 14px;
   line-height: 21px;
   letter-spacing: 0;
@@ -55,5 +70,6 @@ button {
     letter-spacing: 0;
   }
 }
+
 
 

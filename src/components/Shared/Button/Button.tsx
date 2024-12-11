@@ -3,11 +3,12 @@ import React from 'react';
 
 type Props = {
   children: React.ReactNode;
+  className: string;
 };
 
-export const Button: React.FC<Props> = ({ children, ...props }) => {
+export const Button: React.FC<Props> = ({ children, className, ...props }) => {
   return (
-    <button className="button" {...props}>
+    <button className={className} {...props}>
       {children}
     </button>
   );

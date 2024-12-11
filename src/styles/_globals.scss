@@ -4,18 +4,6 @@
   font-weight: normal;
 }
 
-@font-face {
-  font-family: Mont;
-  src: url('../../../public/fonts/Mont-Bold.otf') format('opentype');
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: Mont;
-  src: url('../../../public/fonts/Mont-SemiBold.otf') format('opentype');
-  font-weight: 600;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -50,6 +38,9 @@ ul, ul li {
 }
 
 button {
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0;
   border: none;
 }
 
@@ -66,7 +57,10 @@ button {
 }
 
 p {
+  font-family: Mont, sans-serif;
+  font-size: 14px;
   margin: 0;
+  line-height: 21px;
 }
 
 h1,h2,h3,h4,h5,h6 {

@@ -8,8 +8,9 @@
 
   &__content {
     display: flex;
+    height: 100%;
     flex-direction: column;
-    gap: 8px;
+    justify-content: space-between;
   }
 
   &__separator {
@@ -22,10 +23,8 @@
     align-items: center;
     justify-content: center;
 
-
     &-pick {
       height: 196px;
-      margin-bottom: auto;
     }
   }
 
@@ -37,6 +36,7 @@
     &-title {
       font-size: 14px;
       font-weight: 600;
+      padding-top: 16px;
       line-height: 21px;
     }
 
@@ -76,6 +76,19 @@
   &__detail {
     display: flex;
     justify-content: space-between;
+
+    &-label {
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 15.34px;
+      color: #89939A;
+    }
+
+    &-value {
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 15.34px;
+    }
   }
 
   &__actions {
