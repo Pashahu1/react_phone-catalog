@@ -1,5 +1,5 @@
 import { Card } from '../components/Shared/Card/Cart';
-import { filteredCategory } from '../helpers/ProductFilter';
+import { filteredCategory } from '../helpers/Products/ProductFilter';
 import React, { useEffect, useState } from 'react';
 import { Loader } from '../components/Shared/Loader/Loader';
 import { Product } from '../types/global';

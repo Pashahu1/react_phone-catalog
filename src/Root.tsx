@@ -7,9 +7,7 @@ import { Tablet } from './pages/Tablet';
 import { Accessories } from './pages/Accessories';
 import { Favourite } from './pages/Favourite';
 import { Basket } from './pages/Basket';
-// import { products } from '../public/api/products.json';
-// import { tablets } from '../public/api/tablets.json';
-import { CardContext } from './store/CardContext';
+import { ContextProvider } from './store/CardContext';
 import { Loader } from './components/Shared/Loader/Loader';
 
 export const Root = () => {
@@ -27,7 +25,7 @@ export const Root = () => {
     <React.StrictMode>
       {loading && <Loader />}
       {!loading && (
-        <CardContext>
+        <ContextProvider>
           <Router>
             <Routes>
               <Route path="/" element={<App />}>
@@ -41,7 +39,7 @@ export const Root = () => {
               </Route>
             </Routes>
           </Router>
-        </CardContext>
+        </ContextProvider>
       )}
     </React.StrictMode>
   );

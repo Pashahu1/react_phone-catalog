@@ -1,19 +1,28 @@
 .slider {
   width: 1136px;
-  height: 432px;
 
-  .swiper-slide {
+  &__header {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
   }
 
-  .slide-content {
+  &__button {
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    border: 1px #E2E6E9 solid;
+  }
+
+  &__navigation {
     display: flex;
-    padding: 24px;
-    max-width: 1136px;
-    gap: 20px;
-    background: #000;
+    gap: 16px;
+
+    &--prev,
+    &--next {
+      width: 32px;
+      height: 32px;
+    }
   }
 
   .text-block {
@@ -58,10 +67,18 @@
   }
 }
 
-.swiper-pagination {
-  position: static;
-  width: 14px;
-  height: 4px;
-  left: 565px;
-  top: 650px;
+.swiper {
+  &-pagination {
+    display: none;
+    position: static;
+    width: 14px;
+    height: 4px;
+    left: 565px;
+    top: 650px;
+  }
 }
+
+
+
+
+

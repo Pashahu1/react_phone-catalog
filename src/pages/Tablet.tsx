@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Product } from '../types/global';
-import { filteredCategory } from '../helpers/ProductFilter';
+import { filteredCategory } from '../helpers/Products/ProductFilter';
 import { Card } from '../components/Shared/Card/Cart';
 import { Loader } from '../components/Shared/Loader/Loader';
 

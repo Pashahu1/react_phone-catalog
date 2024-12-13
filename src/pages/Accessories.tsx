@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { filteredCategory } from '../helpers/ProductFilter';
+import { filteredCategory } from '../helpers/Products/ProductFilter';
 import { Product } from '../types/global';
 import { Loader } from '../components/Shared/Loader/Loader';
 import { Card } from '../components/Shared/Card/Cart';
