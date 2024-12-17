@@ -2,17 +2,14 @@
   display: flex;
   align-items: center;
   width: 100%;
+  gap: 16px;
   justify-content: center;
 
   &__list {
     display: flex;
-
+    flex-wrap: wrap;
+    gap: 8px;
   }
-}
-
-.active {
-  color: white;
-  background-color: black;
 }
 
 .page {
@@ -22,6 +19,23 @@
     justify-content: center;
     width: 32px;
     height: 32px;
+    gap: 8px;
     border:1px #E2E6E9 solid;
   }
+
+  &-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    min-width: 100%;
+    min-height: 100%;
+    color: #313237;
+  }
 }
+
+.active .page-link {
+  color: white;
+  background-color: black;
+}
+

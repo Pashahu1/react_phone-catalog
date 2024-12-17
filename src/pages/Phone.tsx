@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Loader } from '../components/Shared/Loader/Loader';
 import { Product } from '../types/global';
 import { Pagination } from '../components/Shared/Pagination/Pagination';
+import { Select } from '../components/Shared/Select/Select';
 
 export const Phone: React.FC = () => {
   const [phoneProducts, setPhoneProducts] = useState<Product[]>([]);
@@ -38,17 +39,18 @@ export const Phone: React.FC = () => {
         <section className="phone">
           <h1 className="phone__title">Mobile phones</h1>
           <p>{phoneProducts.length} models</p>
+          <div className="controle-panel">
+            <Select pageSize={pageSize} setSize={setPageSize} />
+          </div>
           <div className="category">
             {currentPages.map(product => (
               <Card key={product.id} product={product} />
             ))}
-
             <Pagination
               total={phoneProducts.length}
               perPage={pageSize}
               currentPage={currentPage}
               onPageChange={paginate}
-              setPageSize={setPageSize}
             />
           </div>
           <p>flow</p>

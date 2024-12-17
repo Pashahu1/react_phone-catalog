@@ -3,7 +3,7 @@ import './header.scss';
 import Logo from '../../../../public/img/logo.jpeg';
 import Icons_Favourites from '../../../../public/img/Icons_Favourites.png';
 import Icons_Shopping from '../../../../public/img/Icons_Shopping-bag.png';
-import { CustomLink } from '../../Features/CustomLink/CustomLink';
+import { CustomLink } from '../../Shared/CustomLink/CustomLink';
 import { Link } from 'react-router-dom';
 
 export const Header = () => {

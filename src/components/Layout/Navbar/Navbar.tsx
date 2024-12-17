@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import './navbar.scss';
-import { CustomLink } from '../../Features/CustomLink/CustomLink';
+import { CustomLink } from '../../Shared/CustomLink/CustomLink';
 
 export const Navbar: FC = () => {
   return (

@@ -3,15 +3,16 @@
   flex-direction: column;
   gap: 8px;
   width: 272px;
-  height: 506px;
+  min-height: 506px;
   padding: 32px;
   border: 1px #E2E6E9 solid;
 
   &__content {
     display: flex;
-    height: 100%;
+    flex-grow: 1;
     flex-direction: column;
-    justify-content: space-between;
+    height: 100%;
+    gap: 8px;
   }
 
   &__separator {
@@ -20,9 +21,7 @@
   }
 
   &__image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: auto;
 
     &-pick {
       height: 196px;
@@ -37,12 +36,12 @@
     &-title {
       font-size: 14px;
       font-weight: 600;
-      padding-top: 16px;
       line-height: 21px;
     }
 
     &-price {
       display: flex;
+      align-items: center;
       gap: 8px;
 
       &-discount {

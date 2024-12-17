@@ -13,24 +13,33 @@ import { Product } from '../../../types/global';
 type Props = {
   products: Product[];
   title: string;
+  uniqueId: string;
 };
 
-export const ProductSlider: React.FC<Props> = ({ title, products }) => {
+export const ProductSlider: React.FC<Props> = ({
+  title,
+  products,
+  uniqueId,
+}) => {
   return (
     <section className="slider">
       <div className="slider__header">
         <h2 className="slider__title">{title}</h2>
         <div className="slider__navigation">
-          <button className="slider__button slider__button--prev">&lt;</button>
-          <button className="slider__button slider__button--next">&gt;</button>
+          <button className={`slider__button slider__button--prev-${uniqueId}`}>
+            &lt;
+          </button>
+          <button className={`slider__button slider__button--next-${uniqueId}`}>
+            &gt;
+          </button>
         </div>
       </div>
 
       <Swiper
         modules={[Navigation, Pagination, A11y]}
         navigation={{
-          nextEl: `.slider__button--next`,
-          prevEl: `.slider__button--prev`,
+          nextEl: `.slider__button--next-${uniqueId}`,
+          prevEl: `.slider__button--prev-${uniqueId}`,
         }}
         pagination={{ clickable: true }}
         slidesPerView={4}

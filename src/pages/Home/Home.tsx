@@ -17,7 +17,6 @@ export const Home = () => {
   const [productsYears, setProductsYears] = useState<Product[]>([]);
 
   useEffect(() => {
-    // Асинхронная функция для фильтрации продуктов
     const fetchFilteredProducts = async () => {
       try {
         const PriceFilter = filteredPrices();
@@ -42,7 +41,11 @@ export const Home = () => {
     <section className="home">
       <h1 className="home__title">Welcome to Nice Gadgets store!</h1>
       <div className="home__brand-new-models">
-        <ProductSlider title="Brand new models" products={productsYears} />
+        <ProductSlider
+          title="Brand new models"
+          products={productsYears}
+          uniqueId="brand-new"
+        />
       </div>
 
       <div className="home__shop-category">
@@ -72,7 +75,11 @@ export const Home = () => {
         </div>
       </div>
       <div className="home__hot-prices">
-        <ProductSlider title="Hot prices" products={productsPrice} />
+        <ProductSlider
+          title="Hot prices"
+          products={productsPrice}
+          uniqueId="hot-prices"
+        />
       </div>
     </section>
   );

@@ -3,7 +3,7 @@ import { App } from './App';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home } from './pages/Home/Home';
 import { Phone } from './pages/Phone';
-import { Tablet } from './pages/Tablet';
+import { Tablet } from './pages/Tablet/Tablet';
 import { Accessories } from './pages/Accessories';
 import { Favourite } from './pages/Favourite';
 import { Basket } from './pages/Basket';
