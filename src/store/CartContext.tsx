@@ -3,22 +3,22 @@ import { Product } from '../types/global';
 import products from '../../public/api/products.json';
 
 interface ContextValue {
-  data: Product[];
-  setProduct: React.Dispatch<React.SetStateAction<Product[]>>;
+  data?: Product[];
 }
 
-export const DataContext = createContext<ContextValue | undefined>(undefined);
+export const DataContext = createContext<ContextValue | undefined>({
+  data: [],
+});
 
 type Props = {
   children: React.ReactNode;
 };
 
-export const ContextProvider: React.FC<Props> = ({ children }) => {
-  const [product, setProduct] = useState<Product[]>(products);
+export const DataProvider: React.FC<Props> = ({ children }) => {
+  const [product] = useState<Product[]>(products);
   const value = useMemo(
     () => ({
       data: product,
-      setProduct,
     }),
     [product],
   );

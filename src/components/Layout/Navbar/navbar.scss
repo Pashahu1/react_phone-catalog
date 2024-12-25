@@ -11,7 +11,6 @@
     display: flex;
     position: relative;
     align-items: center;
-    height: 69px;
   }
 
   &__link {
@@ -19,6 +18,7 @@
 
     &--active {
       color: $primary;
+      padding: 21px 0;
 
       &::after {
         content: '';
@@ -33,3 +33,4 @@
     }
   }
 }
+

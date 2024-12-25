@@ -1,8 +1,8 @@
 .header {
   display: flex;
-
   justify-content: space-between;
   width: 100%;
+  border-bottom: 1px #E2E6E9 solid;
 
   &__content {
     display: flex;
@@ -18,8 +18,12 @@
     display: flex;
 
     &-icon {
-      padding: 24px;
+      padding: 21px 24px;
     }
   }
+}
+
+.product__link {
+  padding: 0;
 }
 

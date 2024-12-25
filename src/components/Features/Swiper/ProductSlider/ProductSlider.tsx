@@ -1,4 +1,4 @@
-import { Navigation, Pagination, A11y } from 'swiper/modules';
+import { Navigation, A11y } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -6,9 +6,9 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import './productSlider.scss';
-import { Card } from '../../Shared/Card/Cart';
+import { Card } from '../../../Shared/Card/Cart';
 import React from 'react';
-import { Product } from '../../../types/global';
+import { Product } from '../../../../types/global';
 
 type Props = {
   products: Product[];
@@ -36,12 +36,11 @@ export const ProductSlider: React.FC<Props> = ({
       </div>
 
       <Swiper
-        modules={[Navigation, Pagination, A11y]}
+        modules={[Navigation, A11y]}
         navigation={{
           nextEl: `.slider__button--next-${uniqueId}`,
           prevEl: `.slider__button--prev-${uniqueId}`,
         }}
-        pagination={{ clickable: true }}
         slidesPerView={4}
         spaceBetween={16}
       >

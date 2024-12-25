@@ -52,13 +52,9 @@ button {
   font-size: 14px;
   line-height: 21px;
   letter-spacing: 0;
+  background-color: white;
   border: none;
   cursor: pointer;
-}
-
-.home__slider {
-  display: flex;
-  justify-content: center;
 }
 
 .category {
@@ -66,6 +62,7 @@ button {
   flex-wrap: wrap;
   gap: 40px 16px;
   width: 1136px;
+  margin-bottom: 80px;
 }
 
 p {

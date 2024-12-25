@@ -12,17 +12,27 @@
     height: 32px;
     background-color: white;
     border: 1px #E2E6E9 solid;
+
+    &:hover {
+      &:not(:disabled) {
+        border-color: #313237;
+      }
+    }
+
+    &--disabled {
+      border-color: #E2E6E9;
+      cursor: not-allowed;
+
+      &:hover {
+        border-color: #E2E6E9;
+      }
+    }
   }
+
 
   &__navigation {
     display: flex;
     gap: 16px;
-
-    &--prev,
-    &--next {
-      width: 32px;
-      height: 32px;
-    }
   }
 
   .text-block {
@@ -57,7 +67,6 @@
 
   .image-block {
     flex: 1;
-
     img {
       width: 100%;
       height: auto;
@@ -67,16 +76,6 @@
   }
 }
 
-.swiper {
-  &-pagination {
-    display: none;
-    position: static;
-    width: 14px;
-    height: 4px;
-    left: 565px;
-    top: 650px;
-  }
-}
 
 
 

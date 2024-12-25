@@ -20,14 +20,14 @@ export const Header = () => {
         <Navbar />
       </div>
       <div className="header__product">
-        <CustomLink to="/favourite">
+        <CustomLink className="product" to="/favourite">
           <img
             className="header__product-icon"
             src={Icons_Favourites}
             alt="Icons_Favourites"
           />
         </CustomLink>
-        <CustomLink to="/basket">
+        <CustomLink className="product" to="/basket">
           <img
             className="header__product-icon"
             src={Icons_Shopping}

@@ -1,0 +1,33 @@
+.home {
+
+  &__title {
+    margin-top: 56px;
+    margin-bottom: 56px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  &__hot-prices {
+    margin-bottom: 80px;
+  }
+
+  &__slider {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__shop-category {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    &-page {
+      display: flex;
+      gap: 16px;
+    }
+  }
+}

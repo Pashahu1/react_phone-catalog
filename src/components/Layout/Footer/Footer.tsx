@@ -32,7 +32,9 @@ export const Footer = () => {
         </nav>
         <div className="footer__back-to-top">
           <span className="footer__back-to-top-text">Back to top</span>
-          <button className="footer__back-to-top-button">^</button>
+          <button className="footer__back-to-top-button slider__button">
+            ^
+          </button>
         </div>
       </div>
     </footer>

@@ -37,7 +37,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   return (
     <div className="pagination">
       <button
-        className="slider__button"
+        className={`slider__button ${currentPage === 1 ? 'slider__button--disabled' : ''}`}
         onClick={handlePrevPage}
         disabled={currentPage === 1}
       >
