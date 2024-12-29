@@ -1,19 +1,16 @@
+import { Card } from '../../components/Shared/Card/Cart';
 import { filteredCategory } from '../../helpers/Products/ProductFilter';
 import { Loader } from '../../components/Shared/Loader/Loader';
-import { Card } from '../../components/Shared/Card/Cart';
 import { Pagination } from '../../components/Shared/Pagination/Pagination';
-import usePagination from '../../hooks/usePagination';
 // eslint-disable-next-line max-len
 import { PageSelect } from '../../components/Shared/Select/PageSelect/PageSelect';
-import './accessories.scss';
+import usePagination from '../../hooks/usePagination';
+import './phones.scss';
 import { Breadcrumbs } from '../../components/Shared/Breadcrumbs/Breadcrumbs';
 import useFilteredProducts from '../../hooks/useFilteredProducts';
 
-export const Accessories = () => {
-  const { loading, products } = useFilteredProducts(
-    'accessories',
-    filteredCategory,
-  );
+export const Phones = () => {
+  const { loading, products } = useFilteredProducts('phones', filteredCategory);
 
   const { currentItems, currentPage, pageSize, setPageSize, paginate } =
     usePagination(products);
@@ -21,12 +18,12 @@ export const Accessories = () => {
   return (
     <>
       {loading && <Loader />}
-      {!loading && products && (
-        <section className="accessories">
+      {!loading && (
+        <section className="phones">
           <Breadcrumbs />
-          <h1 className="accessories__title">Accessories</h1>
-          <p className="accessories__count">{products.length} models</p>
-          <div>
+          <h1 className="phones__title">Mobile phones</h1>
+          <p className="phones__count">{products.length} models</p>
+          <div className="control-panel">
             <span>sort item on a display</span>
             <PageSelect pageSize={pageSize} setSize={setPageSize} />
           </div>
@@ -35,13 +32,14 @@ export const Accessories = () => {
             {currentItems.map(product => (
               <Card key={product.id} product={product} />
             ))}
+
+            <Pagination
+              total={products.length}
+              perPage={pageSize}
+              currentPage={currentPage}
+              onPageChange={paginate}
+            />
           </div>
-          <Pagination
-            total={products.length}
-            perPage={pageSize}
-            currentPage={currentPage}
-            onPageChange={paginate}
-          />
         </section>
       )}
     </>

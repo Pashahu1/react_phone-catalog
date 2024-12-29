@@ -1,17 +1,17 @@
 import { filteredCategory } from '../../helpers/Products/ProductFilter';
-import { Loader } from '../../components/Shared/Loader/Loader';
 import { Card } from '../../components/Shared/Card/Cart';
+import { Loader } from '../../components/Shared/Loader/Loader';
 import { Pagination } from '../../components/Shared/Pagination/Pagination';
 import usePagination from '../../hooks/usePagination';
 // eslint-disable-next-line max-len
 import { PageSelect } from '../../components/Shared/Select/PageSelect/PageSelect';
-import './accessories.scss';
+import './tablets.scss';
 import { Breadcrumbs } from '../../components/Shared/Breadcrumbs/Breadcrumbs';
 import useFilteredProducts from '../../hooks/useFilteredProducts';
 
-export const Accessories = () => {
+export const Tablets = () => {
   const { loading, products } = useFilteredProducts(
-    'accessories',
+    'tablets',
     filteredCategory,
   );
 
@@ -21,12 +21,13 @@ export const Accessories = () => {
   return (
     <>
       {loading && <Loader />}
-      {!loading && products && (
-        <section className="accessories">
+      {!loading && (
+        <section className="tablets">
           <Breadcrumbs />
-          <h1 className="accessories__title">Accessories</h1>
-          <p className="accessories__count">{products.length} models</p>
-          <div>
+          <h1 className="tablets__title">Tablet</h1>
+          <p className="tablets__count"> {products.length} models</p>
+
+          <div className="control-panel">
             <span>sort item on a display</span>
             <PageSelect pageSize={pageSize} setSize={setPageSize} />
           </div>
@@ -36,9 +37,10 @@ export const Accessories = () => {
               <Card key={product.id} product={product} />
             ))}
           </div>
+
           <Pagination
             total={products.length}
-            perPage={pageSize}
+            perPage={20}
             currentPage={currentPage}
             onPageChange={paginate}
           />

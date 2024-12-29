@@ -80,7 +80,10 @@
       border-radius: 0;
     }
   }
+
+  &-button-disabled {
+    color: #E2E6E9;
+    border-color: #E2E6E9;
+    cursor: not-allowed;
+  }
 }
-
-
-

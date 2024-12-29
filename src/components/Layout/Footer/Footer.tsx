@@ -1,4 +1,5 @@
 import Logo from '../../../../public/img/logo.jpeg';
+import Arrow from '../../../../public/img/arrowUp.svg';
 import './footer.scss';
 
 export const Footer = () => {
@@ -33,7 +34,7 @@ export const Footer = () => {
         <div className="footer__back-to-top">
           <span className="footer__back-to-top-text">Back to top</span>
           <button className="footer__back-to-top-button slider__button">
-            ^
+            <img src={Arrow} alt="arrowUp" />
           </button>
         </div>
       </div>

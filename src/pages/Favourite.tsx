@@ -1,4 +1,4 @@
-export const Favourite = () => {
+export const Favourites = () => {
   return (
     <section className="favorite">
       <p>flow</p>

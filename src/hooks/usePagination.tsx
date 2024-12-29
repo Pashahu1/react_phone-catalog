@@ -11,7 +11,7 @@ interface PaginationResult<T> {
 
 function usePagination<T>(items: T[]): PaginationResult<T> {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [pageSize, setPageSize] = useState<number>(20);
+  const [pageSize, setPageSize] = useState<number>(16);
 
   const totalPages = Math.ceil(items.length / pageSize);
   const firstPageIndex = (currentPage - 1) * pageSize;

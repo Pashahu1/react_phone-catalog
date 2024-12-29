@@ -2,13 +2,19 @@ import './card.scss';
 import { Button } from '../Button/Button';
 import favorite from '../../../../public/img/favourites.svg';
 import { Product } from '../../../types/global';
-import React from 'react';
+import React, { useState } from 'react';
 
 type Props = {
   product: Product;
 };
 
 export const Card: React.FC<Props> = ({ product }) => {
+  const [clicked, setClicked] = useState(false);
+
+  function handleChange() {
+    setClicked(prevState => !prevState);
+  }
+
   return (
     <article className="card">
       <div className="card__content">
@@ -41,7 +47,12 @@ export const Card: React.FC<Props> = ({ product }) => {
         </div>
 
         <div className="card__actions">
-          <Button className="button card__button">Add to cart</Button>
+          <Button
+            className={`button ${clicked ? 'card__button--active' : 'card__button'}`}
+            onClick={handleChange}
+          >
+            Add to cart
+          </Button>
           <div className="card__favorite">
             <img className="card__favorite-icon" src={favorite} alt="like" />
           </div>

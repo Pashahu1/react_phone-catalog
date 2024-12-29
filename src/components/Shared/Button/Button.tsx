@@ -1,7 +1,7 @@
 import './button.scss';
 import React from 'react';
 
-type Props = {
+type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode;
   className: string;
 };

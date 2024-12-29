@@ -1,0 +1,36 @@
+.breadcrumb {
+  max-width: 1136px;
+  margin-top: 24px;
+  margin-bottom: 40px;
+}
+
+.breadcrumb .crumb::after {
+  content: '>';
+  color: #89939A;
+  text-align: center;
+  width: 16px;
+}
+
+.breadcrumb .crumb:last-child::after {
+  display: none;
+}
+
+.breadcrumb .crumb a {
+ color: #89939A;
+}
+
+.crumb {
+  display: flex;
+  gap: 8px;
+
+  &__separator {
+    text-align: center;
+    width: 16px;
+  }
+
+  &__text,
+  &__separator {
+    color: #89939A;
+  }
+}
+

@@ -1,3 +1,5 @@
+@import '../../../styles/variables';
+
 .card {
   display: flex;
   flex-direction: column;
@@ -6,6 +8,16 @@
   min-height: 506px;
   padding: 32px;
   border: 1px #E2E6E9 solid;
+
+  &__button {
+    background: $primary;
+    color: #fff;
+
+    &--active {
+      border:1px solid #E2E6E9;
+      color: #27AE60;
+    }
+  }
 
   &:hover {
     box-shadow: 0 2px 16px 0 #0000001A;
