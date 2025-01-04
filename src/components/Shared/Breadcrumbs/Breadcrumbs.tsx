@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import './breadcrumbs.scss';
 import Home from '../../../../public/img/Home.svg';
 
@@ -16,13 +16,16 @@ export const Breadcrumbs = () => {
         <div className="crumb" key={crumb}>
           {index === 0 && (
             <>
-              <img className="crumb__logo" src={Home} alt="Home" />
+              <NavLink className="crumb__link" to="/">
+                <img className="crumb__logo" src={Home} alt="Home" />
+              </NavLink>
+
               <span className="crumb__separator">{'>'}</span>
             </>
           )}
-          <Link to={currentLink} className="crumb__link">
+          <NavLink to={currentLink} className="crumb__link">
             {crumb}
-          </Link>
+          </NavLink>
           {index > 0 && index < array.length - 1 && (
             <span className="crumb__separator">{'>'}</span>
           )}

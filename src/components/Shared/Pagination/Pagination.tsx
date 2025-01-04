@@ -60,7 +60,11 @@ export const Pagination: React.FC<PaginationProps> = ({
           </li>
         ))}
       </ul>
-      <button className="slider__button" onClick={handleNextPage}>
+      <button
+        className={`slider__button ${currentPage === totalPages ? 'swiper-button-disabled' : ''}`}
+        onClick={handleNextPage}
+        disabled={currentPage === totalPages}
+      >
         &gt;
       </button>
     </div>

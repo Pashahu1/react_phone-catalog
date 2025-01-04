@@ -4,7 +4,7 @@ import { Loader } from '../../components/Shared/Loader/Loader';
 import { Pagination } from '../../components/Shared/Pagination/Pagination';
 import usePagination from '../../hooks/usePagination';
 // eslint-disable-next-line max-len
-import { PageSelect } from '../../components/Shared/Select/PageSelect/PageSelect';
+// import { PageSelect } from '../../components/Shared/Select/PageSelect/PageSelect';
 import './tablets.scss';
 import { Breadcrumbs } from '../../components/Shared/Breadcrumbs/Breadcrumbs';
 import useFilteredProducts from '../../hooks/useFilteredProducts';
@@ -15,8 +15,7 @@ export const Tablets = () => {
     filteredCategory,
   );
 
-  const { currentItems, currentPage, pageSize, setPageSize, paginate } =
-    usePagination(products);
+  const { currentItems, currentPage, paginate } = usePagination(products);
 
   return (
     <>
@@ -29,7 +28,8 @@ export const Tablets = () => {
 
           <div className="control-panel">
             <span>sort item on a display</span>
-            <PageSelect pageSize={pageSize} setSize={setPageSize} />
+            <span>pageSelect item on a display</span>
+            {/*<PageSelect pageSize={pageSize} setSize={setPageSize} />*/}
           </div>
 
           <div className="category">

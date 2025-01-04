@@ -4,7 +4,7 @@ import { Card } from '../../components/Shared/Card/Cart';
 import { Pagination } from '../../components/Shared/Pagination/Pagination';
 import usePagination from '../../hooks/usePagination';
 // eslint-disable-next-line max-len
-import { PageSelect } from '../../components/Shared/Select/PageSelect/PageSelect';
+// import { PageSelect } from '../../components/Shared/Select/PageSelect/PageSelect';
 import './accessories.scss';
 import { Breadcrumbs } from '../../components/Shared/Breadcrumbs/Breadcrumbs';
 import useFilteredProducts from '../../hooks/useFilteredProducts';
@@ -15,7 +15,7 @@ export const Accessories = () => {
     filteredCategory,
   );
 
-  const { currentItems, currentPage, pageSize, setPageSize, paginate } =
+  const { currentItems, currentPage, pageSize, paginate } =
     usePagination(products);
 
   return (
@@ -26,9 +26,10 @@ export const Accessories = () => {
           <Breadcrumbs />
           <h1 className="accessories__title">Accessories</h1>
           <p className="accessories__count">{products.length} models</p>
-          <div>
+          <div className="control-panel">
             <span>sort item on a display</span>
-            <PageSelect pageSize={pageSize} setSize={setPageSize} />
+            <span>pageSelect item on a display</span>
+            {/*<PageSelect pageSize={pageSize} setSize={setPageSize} />*/}
           </div>
 
           <div className="category">

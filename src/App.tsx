@@ -2,6 +2,8 @@ import { Header } from './components/Layout/Header';
 import { Footer } from './components/Layout/Footer';
 import { Outlet } from 'react-router-dom';
 import { DataProvider } from './store/CartContext';
+import { Suspense } from 'react';
+import { Loader } from './components/Shared/Loader/Loader';
 
 export const App = () => {
   return (
@@ -9,7 +11,9 @@ export const App = () => {
       <DataProvider>
         <Header />
         <main className="content">
-          <Outlet />
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
         </main>
         <Footer />
       </DataProvider>
