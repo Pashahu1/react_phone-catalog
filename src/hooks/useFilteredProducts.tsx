@@ -42,4 +42,4 @@ export default function useFilteredProducts(category: string) {
   }, [category]);
 
   return { loading, products, error };
-};
+}
