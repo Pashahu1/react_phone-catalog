@@ -1,29 +1,45 @@
 import { useState, useEffect } from 'react';
 import { Product } from '../types/global';
 
-type FilteredCategoryFunction = (category: string) => Product[];
-
-const useFilteredProducts = (
-  category: string,
-  filteredCategory: FilteredCategoryFunction,
-) => {
-  const [loading, setLoading] = useState<boolean>(true);
+export default function useFilteredProducts(category: string) {
+  const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState<Product[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const filtered = filteredCategory(category);
+    const fetchProducts = async () => {
+      setLoading(true);
+      setError(null); // Сбрасываем ошибку перед новой загрузкой
 
-    const loader = setTimeout(() => {
-      setLoading(false);
-      setProducts(filtered);
-    }, 1000);
+      try {
+        const response = await fetch('/api/products.json');
 
-    return () => {
-      clearTimeout(loader);
+        if (!response.ok) {
+          throw new Error(
+            `Failed to fetch products. Status: ${response.status}`,
+          );
+        }
+
+        const data: Product[] = await response.json();
+
+        // Фильтруем продукты по категории
+        const filteredProducts = data.filter(
+          product => product.category.toLowerCase() === category.toLowerCase(),
+        );
+
+        setProducts(filteredProducts);
+      } catch (err: unknown) {
+        const errorMessage =
+          err instanceof Error ? err.message : 'Unknown error occurred';
+
+        setError(errorMessage);
+      } finally {
+        setLoading(false);
+      }
     };
-  }, [category, filteredCategory]);
 
-  return { loading, products };
+    fetchProducts();
+  }, [category]);
+
+  return { loading, products, error };
 };
-
-export default useFilteredProducts;

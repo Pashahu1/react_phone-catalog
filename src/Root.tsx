@@ -1,11 +1,12 @@
 import { lazy } from 'react';
 import { useEffect, useState } from 'react';
 import { App } from './App';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Loader } from './components/Shared/Loader/Loader';
-import { ProductView } from './components/Features/ProductView/ProductView';
-
-import product from '../public/api/products.json';
+import {
+  ProductDetailsPage,
+  // ProductView
+} from './components/Features/ProductView/ProductView';
 
 const Homepage = lazy(() =>
   import('./pages/Home/Home').then(module => ({ default: module.Home })),
@@ -57,10 +58,7 @@ export const Root = () => {
           <Route path="Accessories" element={<Accessories />} />
           <Route path="Favourites" element={<Favourites />} />
           <Route path="Basket" element={<Basket />} />
-          <Route
-            path="/product/:id"
-            element={<ProductView products={product} />}
-          />
+          <Route path="/product/:productId" element={<ProductDetailsPage />} />
         </Route>
       </Routes>
     </Router>
