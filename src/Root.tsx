@@ -3,15 +3,14 @@ import { useEffect, useState } from 'react';
 import { App } from './App';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Loader } from './components/Shared/Loader/Loader';
-import {
-  ProductDetailsPage,
-  // ProductView
-} from './components/Features/ProductView/ProductView';
+// eslint-disable-next-line max-len
+import ProductDetailsPage from './components/Features/ProductDetailsPage/ProductDetailsPage';
+import { PostsProvider } from './store/PostsContext';
 
 const Homepage = lazy(() =>
   import('./pages/Home/Home').then(module => ({ default: module.Home })),
 );
-const Phone = lazy(() =>
+const Phones = lazy(() =>
   import('./pages/Phones/Phones').then(module => ({ default: module.Phones })),
 );
 const Tablets = lazy(() =>
@@ -50,17 +49,20 @@ export const Root = () => {
 
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<Homepage />} />
-          <Route path="Phones" element={<Phone />} />
-          <Route path="Tablets" element={<Tablets />} />
-          <Route path="Accessories" element={<Accessories />} />
-          <Route path="Favourites" element={<Favourites />} />
-          <Route path="Basket" element={<Basket />} />
-          <Route path="/product/:productId" element={<ProductDetailsPage />} />
-        </Route>
-      </Routes>
+      <PostsProvider>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<Homepage />} />
+            <Route path="Phones" element={<Phones />} />
+            <Route path="Tablets" element={<Tablets />} />
+            <Route path="Accessories" element={<Accessories />} />
+            <Route path="Favourites" element={<Favourites />} />
+            <Route path="Basket" element={<Basket />} />
+            <Route path="product/:productId" element={<ProductDetailsPage />} />
+            <Route path="*" element={<p>Not found</p>} />
+          </Route>
+        </Routes>
+      </PostsProvider>
     </Router>
   );
 };

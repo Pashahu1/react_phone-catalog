@@ -1,18 +1,29 @@
 import { Card } from '../Card/Cart';
 import { Loader } from '../Loader/Loader';
 import { Pagination } from '../Pagination/Pagination';
-import useFilteredProducts from '../../../hooks/useFilteredProducts';
 import usePagination from '../../../hooks/usePagination';
 import { useLocation } from 'react-router-dom';
-import { Breadcrumbs } from "../Breadcrumbs/Breadcrumbs";
+import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
+import { useContext } from 'react';
+import { PostsContext } from '../../../store/PostsContext';
 
 const CategoryPage = () => {
   const location = useLocation();
   const category = location.pathname.split('/').pop() || '';
+  const context = useContext(PostsContext);
 
-  const { loading, products, error } = useFilteredProducts(category);
+  if (!context) {
+    throw new Error('PostsContext is not available');
+  }
+
+  const { posts, error, loading } = context;
+
+  const filteredProducts = posts.filter(
+    product => product.category.toLowerCase() === category.toLowerCase(),
+  );
+
   const { currentItems, currentPage, pageSize, paginate } =
-    usePagination(products);
+    usePagination(filteredProducts);
 
   const formattedCategory =
     category.charAt(0).toUpperCase() + category.slice(1).toLowerCase();
@@ -30,7 +41,7 @@ const CategoryPage = () => {
     );
   }
 
-  if (products.length === 0) {
+  if (filteredProducts.length === 0) {
     return (
       <div className="category-page__empty">
         <h1>{formattedCategory} Page</h1>
@@ -50,7 +61,7 @@ const CategoryPage = () => {
       </div>
 
       <Pagination
-        total={products.length}
+        total={filteredProducts.length}
         perPage={pageSize}
         currentPage={currentPage}
         onPageChange={paginate}

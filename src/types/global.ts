@@ -1,15 +1,4 @@
-export interface CartState {
-  key: string;
-}
-
-export type UpdateState = (newValue: Partial<CartState>) => void;
-
-export interface ContextValue {
-  state: CartState;
-  updateState: UpdateState;
-}
-
-export interface Product {
+export interface Products {
   id: number;
   category: string;
   itemId: string;
@@ -24,7 +13,7 @@ export interface Product {
   image: string;
 }
 
-export interface Products {
+export interface ProductDetail {
   id: string;
   category: string;
   namespaceId: string;
@@ -49,4 +38,10 @@ export interface Products {
 interface Description {
   title: string;
   text: string[];
+}
+
+export interface PostsContextType {
+  posts: Products[];
+  loading: boolean;
+  error: string;
 }

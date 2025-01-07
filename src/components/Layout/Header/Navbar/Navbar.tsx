@@ -11,13 +11,13 @@ export const Navbar: FC = () => {
         <CustomLink className="navbar" to="/">
           Home
         </CustomLink>
-        <CustomLink className="navbar" to="/Phones">
+        <CustomLink className="navbar" to="Phones">
           Phones
         </CustomLink>
-        <CustomLink className="navbar" to="/Tablets">
+        <CustomLink className="navbar" to="Tablets">
           Tablets
         </CustomLink>
-        <CustomLink className="navbar" to="/Accessories">
+        <CustomLink className="navbar" to="Accessories">
           Accessories
         </CustomLink>
       </ul>

@@ -1,11 +1,13 @@
 import './card.scss';
 import { Button } from '../Button/Button';
 import favorite from '../../../../public/img/favourites.svg';
-import { Product } from '../../../types/global';
 import React, { useState } from 'react';
+// import { PostsContext } from '../../../store/PostsContext';
+import { Link } from 'react-router-dom';
+import { Products } from '../../../types/global';
 
 type Props = {
-  product: Product;
+  product: Products;
 };
 
 export const Card: React.FC<Props> = ({ product }) => {
@@ -18,11 +20,13 @@ export const Card: React.FC<Props> = ({ product }) => {
   return (
     <article className="card">
       <div className="card__content">
-        <div className="card__image">
+        <Link to={`/product/${product.id}}`} className="card__image">
           <img className="card__image-pick" src={product.image} alt="mobile" />
-        </div>
+        </Link>
         <div className="card__info">
-          <h3 className="card__info-title">{product.name}</h3>
+          <h3 className="card__info-title">
+            <Link to={`/product/${product.id}`}>{product.name}</Link>
+          </h3>
           <p className="card__info-price">
             <span className="card__info-price-discount">${product.price}</span>
             <span className="card__info-price-fullprice">
