@@ -9,7 +9,7 @@ import { ProductSlider } from '../../components/Features/Swiper/ProductSlider/Pr
 
 import './home.scss';
 import { useEffect, useState } from 'react';
-import { Product } from '../../types/global';
+import { Products } from '../../types/global';
 import {
   filteredPrices,
   filteredYear,
@@ -18,8 +18,8 @@ import {
 import { PreviewSlider } from '../../components/Features/Swiper/PreviewSlider/PreviewSlider';
 
 export const Home = () => {
-  const [productsPrice, setProductsPrice] = useState<Product[]>([]);
-  const [productsYears, setProductsYears] = useState<Product[]>([]);
+  const [productsPrice, setProductsPrice] = useState<Products[]>([]);
+  const [productsYears, setProductsYears] = useState<Products[]>([]);
 
   useEffect(() => {
     const fetchFilteredProducts = async () => {

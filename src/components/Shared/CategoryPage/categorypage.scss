@@ -1,0 +1,13 @@
+.category-page {
+  &__title {
+    margin-bottom: 8px;
+  }
+
+  &__products {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1136px;
+    gap: 40px 16px;
+    margin-bottom: 40px;
+  }
+}

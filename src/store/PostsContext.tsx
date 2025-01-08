@@ -13,47 +13,23 @@ export const PostsProvider: React.FC<Props> = ({ children }) => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch('/api/products.json');
-
+    fetch('/api/products.json')
+      .then(response => {
         if (!response.ok) {
           throw new Error('Failed to fetch products');
         }
 
-        const data = await response.json();
-
+        return response.json();
+      })
+      .then(data => {
         setPosts(data);
-      } catch {
+      })
+      .catch(() => {
         setError('Error fetching products');
-      } finally {
+      })
+      .finally(() => {
         setLoading(false);
-      }
-    };
-
-    fetchProducts();
-  }, []);
-
-  useEffect(() => {
-    const fetchCategoryData = async (category: string) => {
-      try {
-        const response = await fetch(`/api/${category}.json`);
-
-        if (!response.ok) {
-          throw new Error(`Failed to fetch ${category} products`);
-        }
-
-        const data = await response.json();
-
-        setPosts(prevPosts => [...prevPosts, ...data]);
-      } catch {
-        setError(`Error fetching ${category} products`);
-      }
-    };
-
-    fetchCategoryData('phones');
-    fetchCategoryData('tablets');
-    fetchCategoryData('accessories');
+      });
   }, []);
 
   return (

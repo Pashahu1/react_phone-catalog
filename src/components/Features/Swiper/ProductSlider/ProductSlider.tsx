@@ -8,10 +8,10 @@ import 'swiper/css/scrollbar';
 import './productSlider.scss';
 import { Card } from '../../../Shared/Card/Cart';
 import React from 'react';
-import { Product } from '../../../../types/global';
+import { Products } from '../../../../types/global';
 
 type Props = {
-  products: Product[];
+  products: Products[];
   title: string;
   uniqueId: string;
 };

@@ -2,7 +2,6 @@ import './card.scss';
 import { Button } from '../Button/Button';
 import favorite from '../../../../public/img/favourites.svg';
 import React, { useState } from 'react';
-// import { PostsContext } from '../../../store/PostsContext';
 import { Link } from 'react-router-dom';
 import { Products } from '../../../types/global';
 
@@ -20,12 +19,14 @@ export const Card: React.FC<Props> = ({ product }) => {
   return (
     <article className="card">
       <div className="card__content">
-        <Link to={`/product/${product.id}}`} className="card__image">
-          <img className="card__image-pick" src={product.image} alt="mobile" />
-        </Link>
+        <img
+          className="card__image-pick card__image"
+          src={product.image}
+          alt="mobile"
+        />
         <div className="card__info">
           <h3 className="card__info-title">
-            <Link to={`/product/${product.id}`}>{product.name}</Link>
+            <Link to={`/${product.id}`}>{product.name}</Link>
           </h3>
           <p className="card__info-price">
             <span className="card__info-price-discount">${product.price}</span>

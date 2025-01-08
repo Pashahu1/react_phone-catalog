@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { useContext } from 'react';
 import { PostsContext } from '../../../store/PostsContext';
+import './categorypage.scss';
 
 const CategoryPage = () => {
   const location = useLocation();
@@ -16,8 +17,7 @@ const CategoryPage = () => {
     throw new Error('PostsContext is not available');
   }
 
-  const { posts, error, loading } = context;
-
+  const { posts, loading } = context;
   const filteredProducts = posts.filter(
     product => product.category.toLowerCase() === category.toLowerCase(),
   );
@@ -32,24 +32,6 @@ const CategoryPage = () => {
     return <Loader />;
   }
 
-  if (error) {
-    return (
-      <div className="category-page__error">
-        <p>Error: {error}</p>
-        <button onClick={() => window.location.reload()}>Retry</button>
-      </div>
-    );
-  }
-
-  if (filteredProducts.length === 0) {
-    return (
-      <div className="category-page__empty">
-        <h1>{formattedCategory} Page</h1>
-        <p>There are no {formattedCategory.toLowerCase()} available yet.</p>
-      </div>
-    );
-  }
-
   return (
     <section className="category-page">
       <Breadcrumbs />
@@ -61,7 +43,7 @@ const CategoryPage = () => {
       </div>
 
       <Pagination
-        total={filteredProducts.length}
+        total={filteredProducts?.length || 0}
         perPage={pageSize}
         currentPage={currentPage}
         onPageChange={paginate}
