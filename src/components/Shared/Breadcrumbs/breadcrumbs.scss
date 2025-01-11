@@ -1,14 +1,22 @@
 .breadcrumb {
+  display: none;
   max-width: 1136px;
   margin-top: 24px;
   margin-bottom: 40px;
+  gap: 8px;
+
+  &__link {
+    color: #313237;
+    height: 16px;
+  }
 }
 
-.breadcrumb .crumb::after {
+.breadcrumb,
+.crumb::after {
   content: '>';
   color: #89939A;
   text-align: center;
-  width: 16px;
+  align-items: center;
 }
 
 .breadcrumb .crumb:last-child::after {
@@ -19,12 +27,6 @@
   display: flex;
   align-items: center;
   gap: 8px;
-
-  &__link {
-    display: flex;
-    align-items: center;
-    color: #313237;
-  }
 
   &__separator {
     text-align: center;
@@ -38,5 +40,6 @@
 }
 
 .active {
+  display: flex;
   color: #89939A;
 }

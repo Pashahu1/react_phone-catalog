@@ -26,7 +26,9 @@ export const Card: React.FC<Props> = ({ product }) => {
         />
         <div className="card__info">
           <h3 className="card__info-title">
-            <Link to={`/${product.id}`}>{product.name}</Link>
+            <Link to={`/${product.category}/${product.id}`}>
+              {product.name}
+            </Link>
           </h3>
           <p className="card__info-price">
             <span className="card__info-price-discount">${product.price}</span>

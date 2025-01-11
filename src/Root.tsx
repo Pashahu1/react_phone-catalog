@@ -4,8 +4,9 @@ import { App } from './App';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Loader } from './components/Shared/Loader/Loader';
 // eslint-disable-next-line max-len
-import ProductDetailsPage from './components/Features/ProductDetailsPage/ProductDetailsPage';
+import ProductDetailsPage from './pages/ProductDetails/ProductDetailsPage';
 import { PostsProvider } from './store/PostsContext';
+import CategoryPage from './components/Shared/CategoryPage/CategoryPage';
 
 const Homepage = lazy(() =>
   import('./pages/Home/Home').then(module => ({ default: module.Home })),
@@ -56,7 +57,10 @@ export const Root = () => {
             <Route path="Phones" element={<Phones />} />
             <Route path="Tablets" element={<Tablets />} />
             <Route path="Accessories" element={<Accessories />} />
-            <Route path="/:productId" element={<ProductDetailsPage />} />
+            <Route path=":category">
+              <Route index element={<CategoryPage />} />
+              <Route path=":id" element={<ProductDetailsPage />} />
+            </Route>
             <Route path="Favourites" element={<Favourites />} />
             <Route path="Basket" element={<Basket />} />
             <Route path="*" element={<p>Not found</p>} />

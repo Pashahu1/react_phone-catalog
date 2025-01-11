@@ -3,7 +3,6 @@ import { Loader } from '../Loader/Loader';
 import { Pagination } from '../Pagination/Pagination';
 import usePagination from '../../../hooks/usePagination';
 import { useLocation } from 'react-router-dom';
-import { Breadcrumbs } from '../Breadcrumbs/Breadcrumbs';
 import { useContext } from 'react';
 import { PostsContext } from '../../../store/PostsContext';
 import './categorypage.scss';
@@ -34,7 +33,6 @@ const CategoryPage = () => {
 
   return (
     <section className="category-page">
-      <Breadcrumbs />
       <h1 className="category-page__title">{formattedCategory} Page</h1>
       <div className="category-page__products">
         {currentItems.map(product => (
@@ -43,7 +41,7 @@ const CategoryPage = () => {
       </div>
 
       <Pagination
-        total={filteredProducts?.length || 0}
+        total={filteredProducts?.length}
         perPage={pageSize}
         currentPage={currentPage}
         onPageChange={paginate}
