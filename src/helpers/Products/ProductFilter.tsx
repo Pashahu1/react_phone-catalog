@@ -1,16 +1,13 @@
-// import products from '../../../public/api/products.json';
-// import React, { useState } from 'react';
-// import { useSearchParams } from 'react-router-dom';
-// import { Dropdown } from '../../components/Shared/Dropdown/Dropdown';
-//
-// export const filteredPrices = () => {
-//   return products.filter(product => product.fullPrice > product.price);
-// };
-//
-// export const filteredYear = () => {
-//   return products.filter(product => product.year >= 2022);
-// };
-//
+import products from '../../../public/api/products.json';
+
+export const filteredPrices = () => {
+  return products.filter(product => product.fullPrice > product.price);
+};
+
+export const filteredYear = () => {
+  return products.filter(product => product.year >= 2022);
+};
+
 // export const PostFilter = () => {
 //   const [searchParams, setSearchParams] = useSearchParams();
 //   const sortContent = ['Newest', 'Cheapest', 'age', 'title', 'price'];
