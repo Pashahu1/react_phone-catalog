@@ -1,0 +1,1 @@
+import{j as e}from"./index-DfBMO-U5.js";const r=()=>e.jsxs("section",{className:"favorite",children:[e.jsx("p",{children:"flow"}),e.jsx("h1",{children:"Welcome to Nice Gadgets store!"}),e.jsx("p",{children:"count phone"}),e.jsx("span",{children:"sort item on a display"}),e.jsx("p",{children:"product slider"})]});export{r as Favourites};
