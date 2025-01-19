@@ -59,21 +59,21 @@ export const Home = () => {
           <h2 className="home__shop-category-title">Shop by Category</h2>
           <div className="home__shop-category-page">
             <CategoryCard
-              to="/Phones"
+              to="/phones"
               imageSrc={BannerPhone}
               alt="Mobile phones"
               text="Mobile phones"
               count={32}
             />
             <CategoryCard
-              to="/Tablets"
+              to="/tablets"
               imageSrc={BannerTablet}
               alt="Tablets"
               text="Tablets"
               count={24}
             />
             <CategoryCard
-              to="/Accessories"
+              to="/accessories"
               imageSrc={BannerAccessories}
               alt="Accessories"
               text="Accessories"

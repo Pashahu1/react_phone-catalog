@@ -10,4 +10,17 @@
     gap: 40px 16px;
     margin-bottom: 40px;
   }
+
+  &__models-count {
+    color: #89939A;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 600;
+  }
+}
+
+.category__panel {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
 }

@@ -3,10 +3,8 @@ import { useEffect, useState } from 'react';
 import { App } from './App';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Loader } from './components/Shared/Loader/Loader';
-// eslint-disable-next-line max-len
-import ProductDetailsPage from './pages/ProductDetails/ProductDetailsPage';
-import { PostsProvider } from './store/PostsContext';
-import CategoryPage from './components/Shared/CategoryPage/CategoryPage';
+import ProductDetails from './pages/ProductDetails/ProductDetailsPage';
+// import { PostsProvider } from './store/PostsContext';
 
 const Homepage = lazy(() =>
   import('./pages/Home/Home').then(module => ({ default: module.Home })),
@@ -50,23 +48,18 @@ export const Root = () => {
 
   return (
     <Router>
-      <PostsProvider>
-        <Routes>
-          <Route path="/" element={<App />}>
-            <Route index element={<Homepage />} />
-            <Route path="Phones" element={<Phones />} />
-            <Route path="Tablets" element={<Tablets />} />
-            <Route path="Accessories" element={<Accessories />} />
-            <Route path=":category">
-              <Route index element={<CategoryPage />} />
-              <Route path=":id" element={<ProductDetailsPage />} />
-            </Route>
-            <Route path="Favourites" element={<Favourites />} />
-            <Route path="Basket" element={<Basket />} />
-            <Route path="*" element={<p>Not found</p>} />
-          </Route>
-        </Routes>
-      </PostsProvider>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route index element={<Homepage />} />
+          <Route path="phones" element={<Phones />} />
+          <Route path="tablets" element={<Tablets />} />
+          <Route path="accessories" element={<Accessories />} />
+          <Route path="products/:productId" element={<ProductDetails />} />
+          <Route path="favourites" element={<Favourites />} />
+          <Route path="basket" element={<Basket />} />
+          <Route path="*" element={<p>Not found</p>} />
+        </Route>
+      </Routes>
     </Router>
   );
 };

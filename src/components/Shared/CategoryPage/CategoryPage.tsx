@@ -3,37 +3,48 @@ import { Loader } from '../Loader/Loader';
 import { Pagination } from '../Pagination/Pagination';
 import usePagination from '../../../hooks/usePagination';
 import { useLocation } from 'react-router-dom';
-import { useContext } from 'react';
-import { PostsContext } from '../../../store/PostsContext';
+import { useEffect, useState } from 'react';
 import './categorypage.scss';
+import { getProductsCategory } from '../../../services/products';
+import { Products } from '../../../types/global';
 
 const CategoryPage = () => {
   const location = useLocation();
-  const category = location.pathname.split('/').pop() || '';
-  const context = useContext(PostsContext);
+  const category = location.pathname.toLowerCase().split('/').pop() || '';
 
-  if (!context) {
-    throw new Error('PostsContext is not available');
-  }
+  const [posts, setPosts] = useState<Products[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
-  const { posts, loading } = context;
-  const filteredProducts = posts.filter(
-    product => product.category.toLowerCase() === category.toLowerCase(),
-  );
+  useEffect(() => {
+    const delay = setTimeout(() => {
+      getProductsCategory(category)
+        .then(setPosts)
+        .catch(() => {
+          setError('Error fetching products');
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }, 1000);
+
+    return () => {
+      clearTimeout(delay);
+    };
+  }, [category]);
 
   const { currentItems, currentPage, pageSize, paginate } =
-    usePagination(filteredProducts);
+    usePagination(posts);
 
-  const formattedCategory =
+  const categoryTitle =
     category.charAt(0).toUpperCase() + category.slice(1).toLowerCase();
-
-  if (loading) {
-    return <Loader />;
-  }
 
   return (
     <section className="category-page">
-      <h1 className="category-page__title">{formattedCategory} Page</h1>
+      {error && <p className="error">{error}</p>}
+      {loading && <Loader />}
+      <h1 className="category-page__title">{categoryTitle} Page</h1>
+      <span className="category-page__models-count">{posts.length} models</span>
       <div className="category-page__products">
         {currentItems.map(product => (
           <Card key={product.id} product={product} />
@@ -41,7 +52,7 @@ const CategoryPage = () => {
       </div>
 
       <Pagination
-        total={filteredProducts?.length}
+        total={posts?.length}
         perPage={pageSize}
         currentPage={currentPage}
         onPageChange={paginate}
