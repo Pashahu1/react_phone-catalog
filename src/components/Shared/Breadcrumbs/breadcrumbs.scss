@@ -1,0 +1,51 @@
+.breadcrumb {
+  display: flex;
+  max-width: 1136px;
+  margin-top: 24px;
+  margin-bottom: 40px;
+  gap: 8px;
+
+  &__link {
+    color: black;
+    height: 16px;
+
+    &--active {
+      color: #89939A;
+    }
+  }
+}
+
+.breadcrumb,
+.crumb::after {
+  content: '>';
+  color: #89939A;
+  text-align: center;
+  align-items: center;
+}
+
+.breadcrumb .crumb:last-child::after {
+  display: none;
+}
+
+.crumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &__separator {
+    width: 16px;
+    text-align: center;
+    color: #89939A;
+  }
+
+  &__text {
+    color: black;
+
+    &--active {
+      color:#89939A;
+    }
+  }
+}
+
+
+

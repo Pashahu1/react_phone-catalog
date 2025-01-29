@@ -1,0 +1,25 @@
+.page-select {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &__label {
+    color:#89939A;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 15.34px;
+  }
+
+  &__select {
+    position: relative;
+    padding: 10px;
+    border-color: #89939A;
+    width: 128px;
+  }
+}
+
+.control-panel {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}

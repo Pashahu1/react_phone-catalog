@@ -1,0 +1,41 @@
+.product {
+  &__about {
+    display: flex;
+    flex-direction: column;
+    width: 560px;
+
+    &-separator {
+      height: 1px;
+      background-color: #E2E6E9;
+      margin-bottom: 32px;
+    }
+
+    &-title {
+      margin-bottom: 16px;
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 30.8px;
+      color: #313237;
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    &-item {
+      &-title {
+        margin-bottom: 16px;
+        font-size: 22px;
+        font-weight: 800;
+        line-height: 30.8px;
+        color: #313237;
+      }
+
+      &-text {
+        color: #89939A;
+      }
+    }
+  }
+}

@@ -1,0 +1,130 @@
+.media-details {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 24px;
+
+  &__radio {
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid #b3b3b3;
+    position: relative;
+    display: inline-block;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 25px;
+      height: 25px;
+      color: currentColor;
+      border-radius: 50%;
+      border: 2px solid white;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s ease;
+    }
+
+    &:checked {
+      border-color: #313237;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 8px;
+
+    &-item {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-label {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 15.34px;
+      color: #89939A;
+    }
+
+    &-value {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 15.34px;
+      color: #313237;
+    }
+  }
+
+  &__separator {
+    height: 1px;
+    background-color: #E2E6E9;
+  }
+
+  &__value {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+  }
+
+  &__button {
+    padding: 8px;
+    color: #313237;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    border: 1px solid #B4BDC3;
+
+    &--active {
+      background-color: black;
+      color: white;
+    }
+  }
+
+  &__price {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &--regular {
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 41px;
+      letter-spacing: -0.01em;
+      color: #313237;
+    }
+
+    &--discount {
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 28.12px;
+      color: #89939A;
+      text-decoration-line: line-through;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 8px;
+
+    &-button {
+      width: 100%;
+      background-color: #313237;
+      color: #fff;
+    }
+
+    &-favorite {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 57px;
+      height: 48px;
+      border: 1px solid #B4BDC3;
+    }
+  }
+}
+
+

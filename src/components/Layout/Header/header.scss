@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  border-bottom: 1px #E2E6E9 solid;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 24px;
+
+    &-icon {
+      display: block;
+      padding: 0 24px;
+    }
+  }
+
+  &__product {
+    display: flex;
+
+    &__item {
+      max-width: 64px;
+    }
+  }
+}
+
+.product__link {
+  border-right: 1px solid #E2E6E9;
+  border-left: 1px solid #E2E6E9;
+  padding: 0;
+}
+

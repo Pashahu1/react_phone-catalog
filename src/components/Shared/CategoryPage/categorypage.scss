@@ -1,0 +1,27 @@
+.category-page {
+  &__title {
+    margin-bottom: 8px;
+  }
+
+  &__products {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1136px;
+    gap: 40px 16px;
+    margin-bottom: 40px;
+  }
+
+  &__models-count {
+    color: #89939A;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 600;
+  }
+
+  &__sort-panel {
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 24px;
+    gap: 16px;
+  }
+}

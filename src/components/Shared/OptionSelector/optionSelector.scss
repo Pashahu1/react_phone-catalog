@@ -1,0 +1,19 @@
+.media-details {
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__options {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__label {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 15.34px;
+    color: #89939A;
+  }
+}

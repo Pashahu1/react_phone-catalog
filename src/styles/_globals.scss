@@ -1,0 +1,86 @@
+@import 'mixins';
+
+@font-face {
+  font-family: Mont-Regular;
+  src: url('/fonts/Mont-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: Mont-Bold;
+  src: url('/fonts/Mont-Bold.otf') format('opentype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Mont-SemiBold;
+  src: url('/fonts/Mont-SemiBold.otf') format('opentype');
+  font-weight: 600;
+}
+
+* {
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+html, body {
+  font-family: Mont-Regular, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex-grow: 1;
+  padding: 0 32px;
+  margin: 0 auto;
+}
+
+a, a:link, a:visited  {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul, ul li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0;
+  color: #FFF;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.category {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 16px;
+  width: 1136px;
+  margin-bottom: 80px;
+}
+
+p {
+  font-family: Mont, sans-serif;
+  font-size: 14px;
+  margin: 0;
+  line-height: 21px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+}
+
+input, textarea {
+  margin: 0;
+}
+

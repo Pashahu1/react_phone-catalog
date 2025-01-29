@@ -1,0 +1,33 @@
+.favorite {
+  display: flex;
+  flex-direction: column;
+  width: 1136px;
+
+  &__empty-page {
+    padding: 50px;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    color: #313237;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 56px;
+    letter-spacing: -0.01em;
+  }
+
+  &__count {
+    margin-bottom: 40px;
+    font-weight: 600;
+    color: #89939A;
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 80px;
+  }
+}
+
+

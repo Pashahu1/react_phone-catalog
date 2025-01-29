@@ -1,0 +1,50 @@
+.previewSlider {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  &-content {
+    display: flex;
+  }
+
+  &__button--next,
+  &__button--prev {
+    height: auto;
+  }
+}
+
+.swiper {
+  &-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    position: static;
+    min-width: 100%;
+    width: 14px;
+
+    &-bullets {
+      width: 14px;
+      margin: 0;
+    }
+
+    &-bullet {
+      cursor: pointer;
+      width: 14px;
+      height: 4px;
+
+      background-color: #313237;
+      border-radius: 0;
+    }
+  }
+
+  &-button-disabled {
+    color: #E2E6E9;
+    border-color: #E2E6E9;
+    cursor: not-allowed;
+  }
+}
+
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 5px 0;
+}

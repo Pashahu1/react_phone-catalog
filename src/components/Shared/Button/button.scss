@@ -1,0 +1,9 @@
+.button {
+  width: 160px;
+  height: 40px;
+  padding: 10px 38px;
+
+  &:hover {
+    box-shadow: 0 3px 13px 0 #17203166;
+  }
+}

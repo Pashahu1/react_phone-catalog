@@ -1,0 +1,34 @@
+.footer {
+  min-width: 100%;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1136px;
+    margin: 0 auto;
+    padding: 32px 0;
+  }
+
+  &__nav {
+    width: 378px;
+
+    &-list {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-link {
+      color: #89939A;
+    }
+  }
+
+  &__back-to-top {
+    display: flex;
+    align-items: center;
+    color: #89939A;
+    gap: 16px;
+  }
+}
+
+
