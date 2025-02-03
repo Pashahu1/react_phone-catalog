@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import { Loader } from './components/Shared/Loader/Loader';
 import { Breadcrumbs } from './components/Shared/Breadcrumbs/Breadcrumbs';
+import './routes/index';
 
 export const App = () => {
   return (

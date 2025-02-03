@@ -3,6 +3,21 @@
   flex-direction: column;
   width: 1136px;
 
+  &__go-back {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 4px;
+    margin-bottom: 16px;
+
+    &-text {
+      color: #89939A;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 15.34px;
+    }
+  }
+
   &__content {
     margin-bottom: 80px;
   }

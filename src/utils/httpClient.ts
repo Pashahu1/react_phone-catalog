@@ -12,7 +12,4 @@ export const client = {
   get<T>(url: string): Promise<T> {
     return fetch(BASE_URL + url, { method: 'GET' }).then(handleResponse);
   },
-  delete<T>(url: string): Promise<T> {
-    return fetch(BASE_URL + url, { method: 'DELETE' }).then(handleResponse);
-  },
 };

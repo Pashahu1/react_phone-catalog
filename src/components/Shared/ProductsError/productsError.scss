@@ -1,0 +1,10 @@
+.productsError {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &--error {
+    width: 40%;
+    padding: 50px;
+  }
+}

@@ -1,22 +1,41 @@
 import { ProductDetail } from '../../../types/global';
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import './productAttributes.scss';
 // eslint-disable-next-line max-len
 import { OptionSelector } from '../../../components/Shared/OptionSelector/OptionSelector';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import colornames from 'colornames';
 import classNames from 'classnames';
-// import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-type Props = {
-  productDetails: ProductDetail | null;
-};
+type Props = { productDetails: ProductDetail | null };
 
 export const ProductAttributes: React.FC<Props> = ({ productDetails }) => {
-  const [selectedColor] = useState('');
+  const [selectedColor, setSelectedColor] = useState('');
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  // const navigate = useNavigate();
-  // const { category } = useParams();
+  const normalizeColor = (color: string) =>
+    color.toLowerCase().replace(/[\s-]/g, '');
+  const navigate = useNavigate();
+
+  const findColorInName = useCallback((_name: string, colors: string[]) => {
+    const normalizedName = normalizeColor(_name);
+
+    return (
+      colors.find(color => normalizedName.includes(color.toLowerCase())) ||
+      colors[0]
+    );
+  }, []);
+
+  useEffect(() => {
+    if (productDetails) {
+      const detectedColor = findColorInName(
+        productDetails.id,
+        productDetails.colorsAvailable,
+      );
+
+      setSelectedColor(detectedColor);
+    }
+  }, [findColorInName, productDetails]);
 
   const techSpecDetails = [
     { label: 'Screen', value: productDetails?.screen },
@@ -36,19 +55,16 @@ export const ProductAttributes: React.FC<Props> = ({ productDetails }) => {
     midnight: '#302E41',
   };
 
-  // const handleFindColors = (color: string) => {
-  //   console.log('Attempting to select color:', color);
-  //
-  //   const matchingProduct =
-  //     productDetails?.colorsAvailable.includes(color) &&
-  //     productDetails?.capacityAvailable.includes(productDetails.capacity);
-  //
-  //   if (matchingProduct) {
-  //     setSelectedColor(color);
-  //     console.log('Selected color:', color);
-  //     navigate(`/${category}/${productDetails?.id}`);
-  //   }
-  // };
+  const handleColorChange = (color: string) => {
+    setSelectedColor(color);
+    const productId = productDetails?.id;
+
+    if (productId) {
+      navigate(
+        `/${productDetails.category}/${productId}?color=${color.toLowerCase()}`,
+      );
+    }
+  };
 
   return (
     <div className="media-details">
@@ -73,7 +89,7 @@ export const ProductAttributes: React.FC<Props> = ({ productDetails }) => {
                 value={color}
                 checked={isChecked}
                 style={{ backgroundColor: hexColor }}
-                // onChange={() => handleFindColors(color)}
+                onChange={() => handleColorChange(color)}
               />
             </div>
           );
@@ -110,7 +126,9 @@ export const ProductAttributes: React.FC<Props> = ({ productDetails }) => {
         </div>
         <div className="media-details__actions">
           <button className="media-details__actions-button">Add to cart</button>
-          <div className="media-details__actions-favorite">Fv</div>
+          <div className="media-details__actions-favorite">
+            <img src="./public/img/Favourites.svg" alt="Favourites" />
+          </div>
         </div>
       </div>
 

@@ -5,11 +5,9 @@
   mask-image: conic-gradient(from 15deg, #0000, #000);
   animation: l26 1s infinite steps(12);
 
-  /* Centering the loader */
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .loader,

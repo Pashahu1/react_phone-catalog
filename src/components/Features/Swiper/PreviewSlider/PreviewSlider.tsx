@@ -8,7 +8,7 @@ import 'swiper/css/scrollbar';
 import '../ProductSlider/productSlider.scss';
 import './previewSlider.scss';
 
-import { Preview } from './Preview/Preview';
+import { Preview } from './Preview';
 import { useContext } from 'react';
 import { PostsContext } from '../../../../store/PostsContext';
 
@@ -54,8 +54,7 @@ export const PreviewSlider = () => {
             el: '.swiper-pagination',
             clickable: true,
           }}
-          slidesPerView={1}
-          spaceBetween={0}
+          loop={true}
           style={{ width: '1040px' }}
         >
           {previewProducts.map((product, i) => (

@@ -1,18 +1,11 @@
 import { lazy } from 'react';
-import { useEffect, useState } from 'react';
 import { App } from './App';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
-import { Loader } from './components/Shared/Loader/Loader';
-// eslint-disable-next-line max-len
-import { ProductDetails } from './pages/ProductDetailsPage/ProductDetails/ProductDetails';
 import CategoryPage from './components/Shared/CategoryPage/CategoryPage';
 import { PostsProvider } from './store/PostsContext';
 import { ShoppingCartProvider } from './store/ShoppingCartContext';
 import { FavoritesCartProvider } from './store/FavoritesCartContext';
-
-const Homepage = lazy(() =>
-  import('./pages/Home/Home').then(module => ({ default: module.Home })),
-);
+import { Home } from './pages/Home/Home'; // Home без lazy
 
 const Favourites = lazy(() =>
   import('./pages/Favorites/Favourite').then(module => ({
@@ -24,21 +17,13 @@ const Basket = lazy(() =>
   import('./pages/Basket/Basket').then(module => ({ default: module.Basket })),
 );
 
+const ProductDetails = lazy(() =>
+  import('./pages/ProductDetailsPage/ProductDetails/ProductDetails').then(
+    module => ({ default: module.ProductDetails }),
+  ),
+);
+
 export const Root = () => {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const delayLoader = setTimeout(() => setLoading(false), 1000);
-
-    return () => {
-      clearTimeout(delayLoader);
-    };
-  }, []);
-
-  if (loading) {
-    return <Loader />;
-  }
-
   return (
     <Router>
       <PostsProvider>
@@ -46,7 +31,7 @@ export const Root = () => {
           <FavoritesCartProvider>
             <Routes>
               <Route path="/" element={<App />}>
-                <Route index element={<Homepage />} />
+                <Route index element={<Home />} />
                 <Route path="/:category" element={<CategoryPage />} />
                 <Route
                   path="/:category/:productId"
@@ -54,7 +39,15 @@ export const Root = () => {
                 />
                 <Route path="favourites" element={<Favourites />} />
                 <Route path="basket" element={<Basket />} />
-                <Route path="*" element={<p>Not found</p>} />
+                <Route
+                  path="*"
+                  element={
+                    <img
+                      src="./public/img/product-not-found.png"
+                      alt="notFound"
+                    />
+                  }
+                />
               </Route>
             </Routes>
           </FavoritesCartProvider>

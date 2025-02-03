@@ -3,9 +3,10 @@ import { Pagination } from '../Pagination/Pagination';
 import usePagination from '../../../hooks/usePagination';
 import './categorypage.scss';
 import { useParams, useSearchParams } from 'react-router-dom';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import { PostsContext } from '../../../store/PostsContext';
 import { Dropdown } from './Dropdown/Dropdown';
+import { ProductsError } from '../ProductsError/ProductsError';
 
 const CategoryPage = () => {
   const context = useContext(PostsContext);
@@ -14,11 +15,15 @@ const CategoryPage = () => {
   const [itemsPerPage, setItemsPerPage] = useState<string | number>(16);
 
   if (!context) {
-    throw new Error('products not found');
+    throw Error('err');
   }
 
   const { posts } = context;
-  const filteredProducts = posts.filter(post => post.category === category);
+
+  const filteredProducts = useMemo(
+    () => posts.filter(post => post.category === category),
+    [category, posts],
+  );
 
   useEffect(() => {
     const items = searchParams.get('items');
@@ -64,6 +69,10 @@ const CategoryPage = () => {
       items: option,
     });
   };
+
+  if (!category || !['phones', 'tablets', 'accessories'].includes(category)) {
+    return <ProductsError />;
+  }
 
   return (
     <section className="category-page">

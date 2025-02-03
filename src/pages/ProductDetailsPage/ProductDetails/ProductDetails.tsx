@@ -8,9 +8,8 @@ import { SpecsSection } from '../SpecsSection/SpecsSection';
 import { ImageGallery } from '../ImageGallery/ImageGallery';
 import { ProductAttributes } from '../ProductAttributes/ProductAttributes';
 // eslint-disable-next-line max-len
-import { ProductSlider } from '../../../components/Features/Swiper/ProductSlider/ProductSlider';
+import { ProductSlider } from '../../../components/Features/Swiper/ProductSlider';
 import { PostsContext } from '../../../store/PostsContext';
-// import arrow from './img/arrowUp.svg';
 import { useGoBack } from '../../../hooks/useGoBack';
 
 export const ProductDetails = () => {
@@ -46,11 +45,11 @@ export const ProductDetails = () => {
     <section className="product">
       <div className="product__go-back" onClick={goBack}>
         <img
-          className="shopping-cart__arrow-icon"
-          src="./public/img/arrowUp.svg"
+          className="product__go-back__arrow-icon"
+          src="./public/img/ArrowLeft.svg"
           alt="arrow-back"
         />
-        <span className="shopping-cart__back-text">Back</span>
+        <span className="product__go-back-text">Back</span>
       </div>
       <h1 className="product__title">{productDetails?.name}</h1>
       <div className="product__content">

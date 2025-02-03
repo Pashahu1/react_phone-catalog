@@ -11,10 +11,12 @@ import { filteredPrices, filteredYear } from '../../helpers/ProductFilter';
 // eslint-disable-next-line max-len
 import { PreviewSlider } from '../../components/Features/Swiper/PreviewSlider/PreviewSlider';
 import { PostsContext } from '../../store/PostsContext';
+import { Loader } from '../../components/Shared/Loader/Loader';
 
 export const Home = () => {
   const [productsPrice, setProductsPrice] = useState<Products[]>([]);
   const [productsYears, setProductsYears] = useState<Products[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const context = useContext(PostsContext);
 
   useEffect(() => {
@@ -32,6 +34,8 @@ export const Home = () => {
         setProductsYears(yearResults);
       } catch (error) {
         throw Error(`fetchFilteredProducts ${error}}`);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -49,6 +53,10 @@ export const Home = () => {
   const accessoriesCount = posts.filter(
     post => post.category === 'accessories',
   ).length;
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <section className="home">
