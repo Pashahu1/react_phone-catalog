@@ -1,12 +1,25 @@
+@import '../../../styles/mixins';
+
 .product {
   display: flex;
   flex-direction: column;
-  width: 1136px;
+  max-width: 1136px;
+  margin: 0 auto;
+  padding: 0 32px;
+
+  @include tablet {
+    padding: 0 24px;
+  }
+
+  @include tablet {
+    padding: 0 16px;
+  }
 
   &__go-back {
     display: flex;
     align-items: center;
     cursor: pointer;
+    width: 66px;
     gap: 4px;
     margin-bottom: 16px;
 
@@ -30,11 +43,30 @@
     display: flex;
     gap: 64px;
     margin-bottom: 80px;
+
+    @include tablet {
+      flex-direction: column;
+      gap: 64px;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      gap: 56px;
+    }
   }
 
   &__media {
     display: flex;
     gap: 64px;
+
+    @include tablet {
+      gap: 17px;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      gap: 40px;
+    }
 
     &-indeficator {
       font-size: 12px;

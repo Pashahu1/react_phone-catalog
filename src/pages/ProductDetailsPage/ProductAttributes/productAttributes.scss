@@ -114,12 +114,19 @@
       width: 100%;
       background-color: #313237;
       color: #fff;
+
+      &--active {
+        border: 1px solid #E2E6E9;
+        background-color: white;
+        color: #27AE60;
+      }
     }
 
     &-favorite {
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
       width: 57px;
       height: 48px;
       border: 1px solid #B4BDC3;

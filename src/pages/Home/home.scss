@@ -1,6 +1,12 @@
+@import '../../styles/mixins';
+
 .home {
+  width: 1136px;
+  margin: 0 auto;
+
   &__title {
     margin-top: 56px;
+    padding: 0 16px;
     margin-bottom: 56px;
   }
 
@@ -8,6 +14,24 @@
     display: flex;
     flex-direction: column;
     gap: 80px;
+    padding: 0 32px;
+    margin: 0 auto;
+    min-height: 100%;
+
+    @include tablet {
+      padding: 0 24px;
+    }
+
+    @include mobile {
+      padding: 0 16px;
+      gap: 56px;
+    }
+  }
+
+  &__preview-slider {
+    position: relative;
+    height: 432px;
+    margin-bottom: 56px;
   }
 
   &__hot-prices {
@@ -27,6 +51,15 @@
     &-page {
       display: flex;
       gap: 16px;
+
+      @include mobile {
+        flex-direction: column;
+        gap: 32px;
+      }
     }
+  }
+
+  @include mobile {
+    width: 100%;
   }
 }

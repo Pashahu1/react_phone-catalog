@@ -1,9 +1,14 @@
+@import '../../styles/mixins';
+
 .favorite {
   display: flex;
   flex-direction: column;
-  width: 1136px;
+  max-width: 1136px;
+  margin: 0 auto;
+  padding: 0 32px;
 
   &__empty-page {
+    max-width: 100%;
     padding: 50px;
   }
 
@@ -27,6 +32,14 @@
     flex-wrap: wrap;
     gap: 16px;
     margin-bottom: 80px;
+  }
+
+  @include tablet {
+    padding: 0 24px;
+  }
+
+  @include mobile {
+    padding: 0 16px;
   }
 }
 

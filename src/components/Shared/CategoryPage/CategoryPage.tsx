@@ -7,6 +7,7 @@ import { useContext, useEffect, useMemo, useState } from 'react';
 import { PostsContext } from '../../../store/PostsContext';
 import { Dropdown } from './Dropdown/Dropdown';
 import { ProductsError } from '../ProductsError/ProductsError';
+import { handlerUpperLetter } from '../../../helpers/ProductFilter';
 
 const CategoryPage = () => {
   const context = useContext(PostsContext);
@@ -74,9 +75,11 @@ const CategoryPage = () => {
     return <ProductsError />;
   }
 
+  const title = handlerUpperLetter(category);
+
   return (
     <section className="category-page">
-      <h1 className="category-page__title">Title Page</h1>
+      <h1 className="category-page__title">{title} Page</h1>
       <span className="category-page__models-count">
         {filteredProducts.length} models
       </span>

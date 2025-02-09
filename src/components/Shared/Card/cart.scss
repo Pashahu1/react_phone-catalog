@@ -1,4 +1,5 @@
 @import '../../../styles/variables';
+@import '../../../styles/mixins';
 
 .card {
   display: flex;
@@ -118,12 +119,21 @@
     align-items: center;
     cursor: pointer;
     justify-content: center;
-    flex-grow: 1;
+    width: 40px;
     border: 1px #E2E6E9 solid;
 
     &:hover {
       border-color: #313237;
     }
+  }
+
+  @include tablet {
+    max-width: 100%;
+  }
+
+  @include mobile {
+    flex: 1;
+    max-width: 100%;
   }
 }
 

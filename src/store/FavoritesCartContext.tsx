@@ -53,7 +53,7 @@ export const FavoritesCartProvider = ({ children }: FavoritesProviderProps) => {
         );
 
         if (updatedCart.length === 0) {
-          removeItem(); // Удаляем из LocalStorage, если больше нет избранных товаров
+          removeItem();
         }
 
         return updatedCart;

@@ -45,7 +45,7 @@ export const ProductSlider: React.FC<Props> = ({
         spaceBetween={16}
       >
         {products.map(product => (
-          <SwiperSlide style={{ width: '272px' }} key={product.id}>
+          <SwiperSlide style={{ minWidth: '272px' }} key={product.id}>
             <Card product={product} />
           </SwiperSlide>
         ))}

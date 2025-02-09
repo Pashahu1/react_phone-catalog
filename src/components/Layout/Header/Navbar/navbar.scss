@@ -1,13 +1,52 @@
 @import '../../../../styles/variables';
+@import '../../../../styles/mixins';
 
 .navbar {
   display: flex;
   justify-content: space-between;
   flex: 1;
 
+  @include mobile {
+   position: relative;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    @include mobile {
+      display: none;
+    }
+
+    &--active {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 50px;
+      left: 0;
+      right: 0;
+      width: 100vw;
+      height: calc(100vh - 50px);
+      background-color: #FFF;
+      z-index: 9999;
+    }
+  }
+
   &__list {
     display: flex;
     gap: 64px;
+
+    @include tablet {
+      gap: 32px;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px;
+      gap: 0;
+    }
   }
 
   &__item {
@@ -19,8 +58,6 @@
 
   &__product {
     display: flex;
-    align-items: center;
-    justify-content: center;
 
     &-icon {
       position: relative;
@@ -49,6 +86,15 @@
       display: flex;
       width: 64px;
       gap: 64px;
+
+      @include tablet {
+        width: 48px;
+      }
+
+      @include mobile {
+        border-top: 1px solid #E2E6E9;
+        width: 100%;
+      }
     }
 
     &__item {
@@ -57,13 +103,42 @@
       align-items: center;
       flex: 1;
       position: relative;
-      max-width: 64px;
+      width: 64px;
       padding: 24px 0;
       border-left: 1px solid #E2E6E9;
+
+      @include tablet {
+        padding: 16px 0;
+      }
+
+      @include mobile {
+        width: 100%;
+      }
+    }
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    flex: 1;
+    position: relative;
+    max-width: 48px;
+    padding: 16px 0;
+    border-left: 1px solid #E2E6E9;
+
+    @include tablet {
+      display: none;
     }
 
+    @include desktop {
+      display: none;
+    }
+  }
 
-
+  @include mobile {
+    justify-content: end;
   }
 }
 
@@ -82,4 +157,7 @@
   }
 }
 
+.no-scroll {
+  overflow: hidden;
+}
 

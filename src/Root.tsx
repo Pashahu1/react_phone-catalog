@@ -5,7 +5,7 @@ import CategoryPage from './components/Shared/CategoryPage/CategoryPage';
 import { PostsProvider } from './store/PostsContext';
 import { ShoppingCartProvider } from './store/ShoppingCartContext';
 import { FavoritesCartProvider } from './store/FavoritesCartContext';
-import { Home } from './pages/Home/Home'; // Home без lazy
+import { Home } from './pages/Home/Home';
 
 const Favourites = lazy(() =>
   import('./pages/Favorites/Favourite').then(module => ({

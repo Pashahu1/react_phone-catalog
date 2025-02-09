@@ -1,3 +1,5 @@
+@import '../../../styles/mixins';
+
 .media-thumbnails {
   display: flex;
   gap: 16px;
@@ -18,6 +20,11 @@
     width: 80px;
     height: 80px;
 
+    @include tablet {
+      width: 35px;
+      height: 35px;
+    }
+
     &:hover {
       border-color: #313237;
     }
@@ -27,6 +34,11 @@
     width: 464px;
     height: 464px;
     padding: 11px;
+
+    @include tablet {
+      width: 287px;
+      height: 287px;
+    }
 
     &-image {
       width: 100%;

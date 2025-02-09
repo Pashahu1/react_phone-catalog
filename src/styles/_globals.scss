@@ -35,10 +35,7 @@ html, body {
 }
 
 .main {
-  flex-grow: 1;
-  padding: 0 32px;
-  margin: 0 auto;
-  min-height: 100%;
+  flex: 1;
 }
 
 a, a:link, a:visited  {
@@ -66,7 +63,6 @@ button {
   display: flex;
   flex-wrap: wrap;
   gap: 40px 16px;
-  width: 1136px;
   margin-bottom: 80px;
 }
 
@@ -84,4 +80,3 @@ h1,h2,h3,h4,h5,h6 {
 input, textarea {
   margin: 0;
 }
-

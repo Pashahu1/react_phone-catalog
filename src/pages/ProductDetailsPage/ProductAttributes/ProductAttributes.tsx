@@ -1,41 +1,91 @@
-import { ProductDetail } from '../../../types/global';
-import React, { useCallback, useEffect, useState } from 'react';
+import { ProductDetail, Products } from '../../../types/global';
+import React, { useState, useEffect } from 'react';
 import './productAttributes.scss';
 // eslint-disable-next-line max-len
 import { OptionSelector } from '../../../components/Shared/OptionSelector/OptionSelector';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import colornames from 'colornames';
 import classNames from 'classnames';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
+import { useShoppingCart } from '../../../store/ShoppingCartContext';
+import { useFavoriteCart } from '../../../store/FavoritesCartContext';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-type Props = { productDetails: ProductDetail | null };
+type Props = { productDetails: ProductDetail };
+
+function mapProductDetailToProduct(
+  detail: ProductDetail,
+  id: number,
+  color: string,
+): Products {
+  return {
+    id: id,
+    itemId: detail.id,
+    color: color,
+    year: 0,
+    category: detail.category,
+    name: detail.name,
+    capacity: detail.capacity,
+    price: detail.priceDiscount,
+    fullPrice: detail.priceRegular,
+    image: detail.images[0],
+    screen: detail.screen,
+    ram: detail.ram,
+  };
+}
 
 export const ProductAttributes: React.FC<Props> = ({ productDetails }) => {
-  const [selectedColor, setSelectedColor] = useState('');
-  const [activeIndex, setActiveIndex] = useState<number>(0);
-  const normalizeColor = (color: string) =>
-    color.toLowerCase().replace(/[\s-]/g, '');
   const navigate = useNavigate();
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
 
-  const findColorInName = useCallback((_name: string, colors: string[]) => {
-    const normalizedName = normalizeColor(_name);
+  const initialColor = searchParams.get('color') || '';
+  const initialCapacity = searchParams.get('capacity') || '';
 
-    return (
-      colors.find(color => normalizedName.includes(color.toLowerCase())) ||
-      colors[0]
-    );
-  }, []);
+  const [selectedColor, setSelectedColor] = useState(initialColor);
+  const [activeIndex, setActiveIndex] = useState(
+    productDetails.capacityAvailable.indexOf(initialCapacity) !== -1
+      ? productDetails.capacityAvailable.indexOf(initialCapacity)
+      : 0,
+  );
+
+  const { getItemQuantity, toggleCartQuantity } = useShoppingCart();
+  const { favoriteItems, toggleFavorite } = useFavoriteCart();
+
+  const quantity = getItemQuantity(productDetails?.id || '');
+  const isFavorite = favoriteItems.some(
+    item => item.product.itemId === productDetails?.id,
+  );
+
+  const updateURLParams = (color: string, capacity: string) => {
+    const params = new URLSearchParams(location.search);
+
+    if (color) {
+      params.set('color', color);
+    }
+
+    if (capacity) {
+      params.set('capacity', capacity);
+    }
+
+    navigate(`${location.pathname}?${params.toString()}`);
+  };
+
+  const handleColorChange = (color: string) => {
+    setSelectedColor(color);
+    updateURLParams(color, productDetails.capacityAvailable[activeIndex]);
+  };
+
+  const handleCapacityChange = (index: number) => {
+    setActiveIndex(index);
+    updateURLParams(selectedColor, productDetails.capacityAvailable[index]);
+  };
 
   useEffect(() => {
-    if (productDetails) {
-      const detectedColor = findColorInName(
-        productDetails.id,
-        productDetails.colorsAvailable,
-      );
-
-      setSelectedColor(detectedColor);
+    if (!initialColor && productDetails.colorsAvailable[0]) {
+      setSelectedColor(productDetails.colorsAvailable[0]);
     }
-  }, [findColorInName, productDetails]);
+  }, [initialColor, productDetails.colorsAvailable]);
 
   const techSpecDetails = [
     { label: 'Screen', value: productDetails?.screen },
@@ -55,15 +105,24 @@ export const ProductAttributes: React.FC<Props> = ({ productDetails }) => {
     midnight: '#302E41',
   };
 
-  const handleColorChange = (color: string) => {
-    setSelectedColor(color);
-    const productId = productDetails?.id;
+  const handleCartsToggle = () => {
+    const product = mapProductDetailToProduct(
+      productDetails,
+      quantity,
+      selectedColor,
+    );
 
-    if (productId) {
-      navigate(
-        `/${productDetails.category}/${productId}?color=${color.toLowerCase()}`,
-      );
-    }
+    toggleCartQuantity(product);
+  };
+
+  const handleFavoriteToggle = () => {
+    const product = mapProductDetailToProduct(
+      productDetails,
+      quantity,
+      selectedColor,
+    );
+
+    toggleFavorite(product);
   };
 
   return (
@@ -102,7 +161,7 @@ export const ProductAttributes: React.FC<Props> = ({ productDetails }) => {
         {productDetails?.capacityAvailable.map((capacity, i) => (
           <div key={i} className="media-details__option-capacity">
             <button
-              onClick={() => setActiveIndex(i)}
+              onClick={() => handleCapacityChange(i)}
               className={classNames('media-details__button', {
                 'media-details__button--active': activeIndex === i,
               })}
@@ -125,9 +184,22 @@ export const ProductAttributes: React.FC<Props> = ({ productDetails }) => {
           </span>
         </div>
         <div className="media-details__actions">
-          <button className="media-details__actions-button">Add to cart</button>
-          <div className="media-details__actions-favorite">
-            <img src="./public/img/Favourites.svg" alt="Favourites" />
+          <button
+            className={`media-details__actions-button ${quantity !== 0 ? 'media-details__actions-button--active' : ''}`}
+            onClick={handleCartsToggle}
+          >
+            {quantity > 0 ? 'In cart' : 'Add to cart'}
+          </button>
+          <div
+            className="media-details__actions-favorite"
+            onClick={handleFavoriteToggle}
+          >
+            <img
+              src={
+                isFavorite ? '/img/FavouritesLike.svg' : '/img/Favourites.svg'
+              }
+              alt="Favourites"
+            />
           </div>
         </div>
       </div>

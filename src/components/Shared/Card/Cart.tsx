@@ -19,6 +19,7 @@ export const Card: React.FC<Props> = ({ product }) => {
   const isFavorite = favoriteItems.some(
     item => item.product.itemId === product.itemId,
   );
+
   const quantity = getItemQuantity(product.itemId);
 
   useEffect(() => {

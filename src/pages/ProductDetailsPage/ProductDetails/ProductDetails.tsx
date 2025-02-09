@@ -55,7 +55,9 @@ export const ProductDetails = () => {
       <div className="product__content">
         <div className="product__media">
           <ImageGallery productDetails={productDetails} />
-          <ProductAttributes productDetails={productDetails} />
+          {productDetails && (
+            <ProductAttributes productDetails={productDetails} />
+          )}
           <span className="product__media-indeficator">ID:855435343</span>
         </div>
       </div>

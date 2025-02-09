@@ -1,16 +1,17 @@
 import './footer.scss';
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__content">
-        <a href="">
+        <Link to="/" className="footer__logo">
           <img
             src="./public/img/Logo.svg"
             alt="logo"
             className="footer__logo"
           />
-        </a>
+        </Link>
         <nav className="footer__nav">
           <ul className="footer__nav-list">
             <li className="footer__nav-item">

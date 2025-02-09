@@ -61,8 +61,10 @@ export const Home = () => {
   return (
     <section className="home">
       <h1 className="home__title">Welcome to Nice Gadgets store!</h1>
-      <div className="home__content">
+      <div className="home__preview-slider">
         <PreviewSlider />
+      </div>
+      <div className="home__content">
         <div className="home__brand-new-models">
           <ProductSlider
             title="Brand new models"

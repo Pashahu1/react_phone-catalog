@@ -1,8 +1,14 @@
+@import '../../../styles/mixins';
+
 .product {
   &__about {
     display: flex;
     flex-direction: column;
-    width: 560px;
+    max-width: 560px;
+
+    @include tablet {
+      max-width: 100%;
+    }
 
     &-separator {
       height: 1px;

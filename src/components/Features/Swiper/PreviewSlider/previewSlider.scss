@@ -1,7 +1,23 @@
+@import '../../../../styles/mixins';
+
 .previewSlider {
   display: flex;
   flex-direction: column;
   gap: 18px;
+
+  @include mobile {
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+
+  &__page {
+    max-width: 1040px;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
 
   &-content {
     display: flex;
@@ -10,6 +26,10 @@
   &__button--next,
   &__button--prev {
     height: auto;
+
+    @include mobile {
+      display: none;
+    }
   }
 }
 

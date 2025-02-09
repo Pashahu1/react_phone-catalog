@@ -1,3 +1,5 @@
+@import '../../../../../styles/mixins';
+
 .preview {
   display: flex;
   justify-content: center;
@@ -5,11 +7,14 @@
   height: 400px;
   background-color: #000;
 
-
   &__order {
     display: flex;
     padding: 16px;
     width: 50%;
+
+    @include mobile {
+      display: none;
+    }
 
     &-content {
       display: flex;
@@ -51,6 +56,10 @@
     gap: 8px;
     text-overflow: clip;
     color: white;
+
+    @include mobile {
+      width: 100%;
+    }
 
     &-title {
       text-align: center;

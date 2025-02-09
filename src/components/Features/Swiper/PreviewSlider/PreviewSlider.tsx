@@ -55,7 +55,7 @@ export const PreviewSlider = () => {
             clickable: true,
           }}
           loop={true}
-          style={{ width: '1040px' }}
+          className="previewSlider__page"
         >
           {previewProducts.map((product, i) => (
             <SwiperSlide key={i}>
