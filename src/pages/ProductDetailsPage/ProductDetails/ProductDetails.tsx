@@ -58,7 +58,7 @@ export const ProductDetails = () => {
           {productDetails && (
             <ProductAttributes productDetails={productDetails} />
           )}
-          <span className="product__media-indeficator">ID:855435343</span>
+          {/*<span className="product__media--indicator">ID:855435343</span>*/}
         </div>
       </div>
       <div className="product__info">

@@ -6,11 +6,7 @@ export const Footer = () => {
     <footer className="footer">
       <div className="footer__content">
         <Link to="/" className="footer__logo">
-          <img
-            src="./public/img/Logo.svg"
-            alt="logo"
-            className="footer__logo"
-          />
+          <img src="/public/img/Logo.svg" alt="logo" className="footer__logo" />
         </Link>
         <nav className="footer__nav">
           <ul className="footer__nav-list">

@@ -1,0 +1,45 @@
+@import '../../../../styles/mixins';
+
+.media-details {
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__options {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__label {
+    position: relative;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 15.34px;
+    color: #89939A;
+  }
+
+  &__indicator {
+    position: absolute;
+    right: 14%;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 15.34px;
+    color: #B4BDC3;
+
+    @include tablet {
+      margin-right: 3%;
+    }
+
+    @include mobile {
+      right: 0;
+    }
+  }
+}

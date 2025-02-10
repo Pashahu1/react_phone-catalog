@@ -2,7 +2,7 @@ import { ProductDetail, Products } from '../../../types/global';
 import React, { useState, useEffect } from 'react';
 import './productAttributes.scss';
 // eslint-disable-next-line max-len
-import { OptionSelector } from '../../../components/Shared/OptionSelector/OptionSelector';
+import { OptionSelector } from './OptionSelector/OptionSelector';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import colornames from 'colornames';
 import classNames from 'classnames';
@@ -127,7 +127,7 @@ export const ProductAttributes: React.FC<Props> = ({ productDetails }) => {
 
   return (
     <div className="media-details">
-      <OptionSelector label="Available colors">
+      <OptionSelector label="Available colors" indicator="ID:855435343">
         {productDetails?.colorsAvailable.map((color, i) => {
           const hexColor = colors[color.toLowerCase()] || colornames(color);
           const isChecked = selectedColor === color;

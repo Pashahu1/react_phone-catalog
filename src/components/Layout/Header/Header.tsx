@@ -9,7 +9,7 @@ export const Header = () => {
         <NavLink to="/">
           <img
             className="header__content-icon"
-            src="./public/img/Logo.svg"
+            src="/public/img/Logo.svg"
             alt="NiceGadgetLogo"
           />
         </NavLink>
